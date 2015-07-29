@@ -1,0 +1,46 @@
+.hanoi:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.pile {
+  float: left;
+  position: relative;
+  width: 50px;
+  margin: 20px;
+  height: 100px;
+}
+
+.pile:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 6px;
+  background-color: #000;
+  top: -5px;
+  bottom: 10px;
+  left: 22px;
+}
+
+.disc {
+  height: 30px;
+}
+
+.disc.\33 {
+  width: 50px;
+  margin: auto;
+  background-color: red;
+}
+
+.disc.\32 {
+  width: 40px;
+  margin: auto;
+  background-color: yellow;
+}
+
+.disc.\31 {
+  width: 30px;
+  margin: auto;
+  background-color: blue;
+}
