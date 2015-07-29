@@ -26,6 +26,16 @@
 
 .cell.clicked {
   background-color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+
+.cell.x {
+  color: blue;
+}
+
+.cell.o {
+  color: red;
 }
 
 .cell.clicked:hover {

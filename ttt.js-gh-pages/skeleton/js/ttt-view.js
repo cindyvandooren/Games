@@ -26,8 +26,17 @@
       alert("Invalid move")
     } else {
       $cell.addClass("clicked");
-      var cellId = $currentCell.data("id");
+      var cellId = $cell.data("id");
+      var currentPlayer = this.game.currentPlayer;
+      $cell.text(currentPlayer);
+      $cell.addClass(currentPlayer);
       this.game.playMove(cellId);
+      if (this.game.isOver() && this.game.winner() !== null) {
+        alert("Player " + currentPlayer + " has won");
+        $(".cell").addClass("clicked");
+      } else if (this.game.isOver()) {
+        alert("Tie!");
+      }
     }
   };
 
