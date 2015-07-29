@@ -1,0 +1,33 @@
+.board {
+
+}
+
+.row {
+  position: relative;
+}
+
+.row:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.cell {
+  border: solid #000 5px;
+  background-color: #aaa;
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+.cell:hover {
+  background-color: yellow;
+}
+
+.cell.clicked {
+  background-color: #fff;
+}
+
+.cell.clicked:hover {
+  background-color: #fff;
+}
