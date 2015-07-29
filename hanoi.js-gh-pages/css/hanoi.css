@@ -10,6 +10,7 @@
   width: 50px;
   margin: 20px;
   height: 100px;
+
 }
 
 .pile:before {
@@ -43,4 +44,16 @@
   width: 30px;
   margin: auto;
   background-color: blue;
+}
+
+
+.pile.selected:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 6px;
+  background-color: green;
+  top: -5px;
+  bottom: 10px;
+  left: 22px;
 }
