@@ -22,9 +22,13 @@
 
   View.prototype.makeMove = function ($cell) {
     // callback should set class to clicked (white bg + show current Player's symbol)
-    // var cellId = $currentCell.data("id");
-    $cell.addClass("clicked");
-
+    if ($cell.hasClass("clicked")) {
+      alert("Invalid move")
+    } else {
+      $cell.addClass("clicked");
+      var cellId = $currentCell.data("id");
+      this.game.playMove(cellId);
+    }
   };
 
   View.prototype.setupBoard = function () {
