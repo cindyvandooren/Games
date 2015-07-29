@@ -6,6 +6,7 @@
     this.$el = $el;
     this.setupTowers($el);
     this.render();
+    this.clickTower();
   }
 
   View.prototype.setupTowers = function ($el) {
@@ -29,5 +30,35 @@
         $(className).addClass("" + disc);
       })
     })
+  }
+
+  View.prototype.clickTower = function () {
+    var that = this;
+    var pileNum = -1;
+    $(".pile").on("click", function (event) {
+      if (pileNum === -1) {
+        pileNum = $(event.currentTarget).attr('class').slice(5);
+      } else {
+        var destination = $(event.currentTarget).attr('class').slice(5);
+        that.game.move(pileNum, destination);
+        discHelper(pileNum);
+        //pileNum's first div that does have a number class, it's class should
+        //not have a number anymore.
+        pileNum = -1;
+        destination = -1;
+        that.render();
+      }
+    })
+  };
+
+  var discHelper = function (pileNum) {
+    var classNum = "." + pileNum
+    var $changeClass = $(classNum).children().each(function ($child) {
+      if ($(this).attr('class').length > 4) {
+        return $(this);
+      }
+    })
+    $changeClass.removeClass($changeClass.attr('class'));
+    $changeClass.addClass("disc");
   }
 })();
