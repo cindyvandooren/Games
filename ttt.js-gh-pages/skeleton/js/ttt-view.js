@@ -33,9 +33,11 @@
       this.game.playMove(cellId);
       if (this.game.isOver() && this.game.winner() !== null) {
         alert("Player " + currentPlayer + " has won");
-        $(".cell").addClass("clicked");
+        $(".cell").addClass("clicked")
+        $(".cell").off("click");
       } else if (this.game.isOver()) {
         alert("Tie!");
+        $(".cell").off("click");
       }
     }
   };
