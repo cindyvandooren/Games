@@ -53,12 +53,15 @@
 
   var discHelper = function (pileNum) {
     var classNum = "." + pileNum
-    var $changeClass = $(classNum).children().each(function ($child) {
-      if ($(this).attr('class').length > 4) {
-        return $(this);
+    var $changeClass = []
+
+    var children = $(classNum).children()
+    for (var i = 0; i < children.length; i++) {
+      if ($(children[i]).attr('class').length > 4) {
+        $changeClass.push($(children[i]));
       }
-    })
-    $changeClass.removeClass($changeClass.attr('class'));
-    $changeClass.addClass("disc");
+    }
+    $changeClass[0].removeClass($changeClass[0].attr('class'));
+    $changeClass[0].addClass("disc");
   }
 })();
