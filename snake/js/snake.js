@@ -1,20 +1,16 @@
 (function(){
-  var Game = window.Game = window.Game || {};
-
-  var Snake = Game.Snake = function (dir) {
-    this.dir = dir;
-    this.segments = [ new Game.Coord([0,0], dir)  ];
+  if (typeof Game === "undefined") {
+    window.Game = {};
   }
-
-  Snake.prototype.move = function () {
-    this.segments.map( function(segment) {
-      segment[0] + dir[0];
-      segment[1] + dir[1];
-    });
-  };
-
-  Snake.prototype.turn = function (newDirection) {
-    this.dir = newDirection;
+  
+  var Snake = Game.Snake = function (board) {
+    this.dir = "N";
+    this.board = board;
+    var middle = Math.floor(board.dim / 2);
+    var center = new Coord(middle, middle);
+    // the segments will be grid coordinates
+    // start with middle of the board
+    this.segments = [center];
   };
 
 

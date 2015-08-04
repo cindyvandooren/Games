@@ -1,34 +1,22 @@
 (function(){
-  var Game = window.Game = window.Game || {};
+  if (typeof Game == "undefined") {
+    window.Game = {};
+  }
 
-  var Coord = Game.Coord = function (coords, dir) {
-    this.x = coords[0];
-    this.y = coords[1];
-    this.dir = dir;
+  var Coord = Game.Coord = function (x, y) {
+    this.x = x;
+    this.y = y;
   };
 
-  Coord.prototype.plus = function (changeCoords) {
-    this.x += changeCoords[0];
-    this.y += changeCoords[1];
+  Coord.prototype.plus = function (newCoord) {
+    return new Coord(this.x + newCoord.x, this.y + newCoord.y);
   };
 
-  Coord.prototype.equals = function (otherCoords) {
-    if (this.x === otherCoords[0] && this.y === otherCoords[1]) {
-      return true;
-    } else {
-      return false;
-    }
+  Coord.prototype.equals = function (otherCoord) {
+    return (this.x === otherCoord.x) && (this.y === otherCoord.y);
   };
 
-  Coord.prototype.isOpposite = function (oppCoords) {
-    if (oppCoords[0] === -1 * this.dir[0] || oppCoords[1] === -1 * this.dir[1]) {
-      return true;
-    } else {
-      return false;
-    }
+  Coord.prototype.isOpposite = function (oppCoord) {
+    return (this.x == (-1 * oppCoord.x)) && (this.y == (-1 * oppCoord.y));
   };
-
-
-
-
 })();
